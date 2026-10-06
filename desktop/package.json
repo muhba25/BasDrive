@@ -1,0 +1,57 @@
+{
+  "name": "basdrive-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BasDrive desktop client for Windows and Linux",
+  "author": "BasDrive",
+  "main": "main.js",
+  "scripts": {
+    "dev": "cross-env BASDRIVE_DEV=1 electron .",
+    "start": "electron .",
+    "pack:win": "electron-builder --win nsis portable",
+    "pack:msi": "electron-builder --win msi",
+    "pack:linux": "electron-builder --linux AppImage"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^34.0.2",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "id.basdrive.desktop",
+    "productName": "BasDrive",
+    "copyright": "Copyright © BasDrive",
+    "files": ["main.js", "preload.js"],
+    "directories": { "output": "release" },
+    "artifactName": "BasDrive-${version}-${os}-${arch}.${ext}",
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "BasDrive",
+      "installerLanguages": ["id_ID", "en_US"],
+      "differentialPackage": false
+    },
+    "portable": {
+      "artifactName": "BasDrive-${version}-portable.exe"
+    },
+    "msi": {
+      "oneClick": false,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "shortcutName": "BasDrive"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "Office"
+    }
+  }
+}

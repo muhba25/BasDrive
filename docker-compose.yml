@@ -1,0 +1,16 @@
+services:
+  basdrive:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - backend/.env.example
+    environment:
+      DATABASE_URL: sqlite:////data/basdrive.db
+      STORAGE_PATH: /data
+      WEB_DIST: /web/static
+    volumes:
+      - basdrive-data:/data
+
+volumes:
+  basdrive-data:

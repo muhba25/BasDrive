@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17303c" />
+    <title>BasDrive</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/app.css?v=ui10" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <aside id="upload-dock" class="upload-dock pos-br" hidden>
+      <header class="upload-dock-head" id="upload-drag">
+        <strong>Unggah</strong>
+        <span id="upload-overall-label">0%</span>
+        <div class="upload-pos" title="Pindahkan posisi">
+          <button type="button" data-pos="tl" title="Kiri atas">⌜</button>
+          <button type="button" data-pos="tc" title="Tengah atas">¯</button>
+          <button type="button" data-pos="tr" title="Kanan atas">⌝</button>
+          <button type="button" data-pos="bl" title="Kiri bawah">⌞</button>
+          <button type="button" data-pos="bc" title="Tengah bawah">_</button>
+          <button type="button" data-pos="br" title="Kanan bawah">⌟</button>
+        </div>
+        <button type="button" class="iconbtn" id="upload-min" title="Sembunyikan daftar">–</button>
+        <button type="button" class="iconbtn" id="upload-close" title="Tutup">✕</button>
+      </header>
+      <div class="upload-overall"><i id="upload-overall-bar"></i></div>
+      <ul id="upload-list" class="upload-files"></ul>
+      <footer class="upload-dock-foot">
+        <button type="button" class="ghost" id="upload-cancel">Batalkan sisa</button>
+        <span class="muted">Seret judul untuk memindahkan panel</span>
+      </footer>
+    </aside>
+    <div class="toasts" id="toasts"></div>
+    <script src="/app.js?v=ui10"></script>
+  </body>
+</html>
